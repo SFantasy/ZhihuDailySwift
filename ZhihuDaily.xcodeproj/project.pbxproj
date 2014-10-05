@@ -491,6 +491,7 @@
 				9A3754C619DFC101009BBAEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9A3754C719DFC101009BBAEB /* Build configuration list for PBXNativeTarget "ZhihuDailyTests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +500,7 @@
 				9A3754C919DFC101009BBAEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -11,7 +11,7 @@ import Alamofire
 
 class ViewController: UIViewController, UITableViewDelegate {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var tableView: UITableView!
     
     let url = "http://news-at.zhihu.com/api/3/news/latest"
     let identifier = "cell"
@@ -21,11 +21,24 @@ class ViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "知乎 · 日报"
         self.view.backgroundColor = UIColor.whiteColor()
         
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: self.identifier)
         
         self.loadData()
+    }
+    
+    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+        return self.latestItems.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier(self.identifier, forIndexPath: indexPath) as UITableViewCell
+        
+        cell.textLabel!.text = self.latestItems[indexPath.row]["title"] as? String
+        
+        return cell
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,32 +48,23 @@ class ViewController: UIViewController, UITableViewDelegate {
     func loadData() {
         Alamofire.request(.GET, self.url).responseJSON {
             (req, res, data, err) in
-            // load fail
+            // 数据加载失败
             if err != nil {
                 // Reference: http://stackoverflow.com/questions/24022479/how-would-i-create-a-uialertview-in-swift
                 var alert = UIAlertController(title: "Zhihu Daily", message: "Data load failed", preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
+            } else {
+                var arr = data?["stories"] as NSArray
+                
+                for data : AnyObject in arr {
+                    self.latestItems.addObject(data)
+                }
+                
+                self.tableView!.reloadData()
             }
-        
-            println(data)
         }
     }
     
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
-        
-        return cell
-    }
-    
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        println("You selected cell #\(indexPath.row)!")
-    }
-
-
 }
 
