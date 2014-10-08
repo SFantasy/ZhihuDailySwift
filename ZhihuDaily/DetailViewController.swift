@@ -7,15 +7,26 @@
 //
 
 import UIKit
+import Alamofire
 
 class DetailViewController: UIViewController {
-
+    
+    @IBOutlet weak var _title: UILabel!
+    
     var storyId: Int!
+    var story: NSMutableArray?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        println(self.storyId)
+        self.loadData()
+    }
+    
+    func loadData() {
+        Alamofire.request(.GET, "http://news-at.zhihu.com/api/3/news/\(self.storyId)").responseJSON {
+            (req, res, data, err) in
+            var arr = data as NSDictionary
+            self._title.text = arr.objectForKey("title")! as? String
+        }
     }
 
     override func didReceiveMemoryWarning() {
