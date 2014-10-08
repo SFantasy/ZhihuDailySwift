@@ -16,6 +16,7 @@
 		9A3754D319DFC218009BBAEB /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A3754D019DFC1DA009BBAEB /* Alamofire.framework */; };
 		9A3754D519DFC252009BBAEB /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 9A3754D019DFC1DA009BBAEB /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9A3754D919DFC351009BBAEB /* acticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3754D819DFC351009BBAEB /* acticle.swift */; };
+		9A83D14419E4E0B000E79A60 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A83D14319E4E0B000E79A60 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		9A3754C019DFC101009BBAEB /* ZhihuDailyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZhihuDailyTests.swift; sourceTree = "<group>"; };
 		9A3754CA19DFC1DA009BBAEB /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		9A3754D819DFC351009BBAEB /* acticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = acticle.swift; path = model/acticle.swift; sourceTree = "<group>"; };
+		9A83D14319E4E0B000E79A60 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				9A3754D619DFC30E009BBAEB /* view */,
 				9A3754AA19DFC101009BBAEB /* AppDelegate.swift */,
 				9A3754AC19DFC101009BBAEB /* ViewController.swift */,
+				9A83D14319E4E0B000E79A60 /* DetailViewController.swift */,
 				9A3754AE19DFC101009BBAEB /* Main.storyboard */,
 				9A3754B119DFC101009BBAEB /* Images.xcassets */,
 				9A3754B319DFC101009BBAEB /* LaunchScreen.xib */,
@@ -300,6 +303,7 @@
 				9A3754D919DFC351009BBAEB /* acticle.swift in Sources */,
 				9A3754AD19DFC101009BBAEB /* ViewController.swift in Sources */,
 				9A3754AB19DFC101009BBAEB /* AppDelegate.swift in Sources */,
+				9A83D14419E4E0B000E79A60 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

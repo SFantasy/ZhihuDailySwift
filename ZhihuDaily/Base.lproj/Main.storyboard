@@ -29,11 +29,30 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="MCP-MP-9Sj" id="nud-0G-T0s"/>
+                        <segue destination="iaX-F1-B6R" kind="showDetail" identifier="showDetail" id="SbV-pQ-cA7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="616" y="-98"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="zMv-dO-MXl">
+            <objects>
+                <viewController id="iaX-F1-B6R" customClass="DetailViewController" customModule="ZhihuDaily" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PKh-wa-Wmo"/>
+                        <viewControllerLayoutGuide type="bottom" id="gIa-IM-AH7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uXV-nq-ibV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UWj-Ov-UUB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1360" y="-98"/>
         </scene>
     </scenes>
 </document>

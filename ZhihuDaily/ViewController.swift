@@ -40,6 +40,19 @@ class ViewController: UIViewController, UITableViewDelegate {
         
         return cell
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("showDetail", sender: self.view)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showDetail" {
+            var index = self.tableView.indexPathForSelectedRow()?.row
+            var data = self.latestItems[index!] as NSDictionary
+            var destination = segue.destinationViewController as DetailViewController
+            destination.storyId = data["id"] as Int
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
