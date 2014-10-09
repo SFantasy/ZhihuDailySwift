@@ -55,6 +55,10 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iXO-ao-iub">
+                                <rect key="frame" x="16" y="78" width="568" height="502"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -63,6 +67,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="_content" destination="iXO-ao-iub" id="SrW-cz-Bms"/>
                         <outlet property="_title" destination="iyl-gE-bTo" id="D8d-H6-vDl"/>
                     </connections>
                 </viewController>

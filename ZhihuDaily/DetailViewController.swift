@@ -9,23 +9,38 @@
 import UIKit
 import Alamofire
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var _title: UILabel!
+    @IBOutlet weak var _content: UIWebView!
     
     var storyId: Int!
     var story: NSMutableArray?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self._content.scrollView.delegate = self
         self.loadData()
     }
     
     func loadData() {
         Alamofire.request(.GET, "http://news-at.zhihu.com/api/3/news/\(self.storyId)").responseJSON {
             (req, res, data, err) in
-            var arr = data as NSDictionary
-            self._title.text = arr.objectForKey("title")! as? String
+            
+            if err != nil {
+                var alert = UIAlertController(title: "Zhihu Daily", message: "Data load failed", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            } else {
+                var arr = data as NSDictionary
+                var body = arr.objectForKey("body")! as String
+                var cssArr = arr.objectForKey("css") as NSArray
+                var css = cssArr[0] as String
+                body = "<link href='\(css)' type='text/css'/>\(body)"
+                
+                self._title.text = arr.objectForKey("title")! as? String
+                self._content.loadHTMLString(body, baseURL: nil)
+            }
         }
     }
 
