@@ -46,12 +46,12 @@ class ViewController: UIViewController, UITableViewDelegate {
         self.tableView.insertSubview(refreshControl, atIndex: 0)
         
         // Nav bar
-        self.navBar.tintColor = self.navBgColor
-        self.navBar.barTintColor = self.navBgColor
-        self.navBar.backgroundColor = self.navBgColor
+//        self.navBar.tintColor = self.navBgColor
+//        self.navBar.barTintColor = self.navBgColor
+//        self.navBar.backgroundColor = self.navBgColor
         
         // Nav bar item
-        self.navItem.title = self.appTitle
+//        self.navItem.title = self.appTitle
         
     }
     

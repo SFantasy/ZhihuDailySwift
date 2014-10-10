@@ -15,7 +15,7 @@ Simple ZhihuDaily client written in Swift built with Xcode6.
 
 - [x] Add `UIRefreshControl`
 - [ ] Customize the UI of TableView
-- [ ] Add navigation in detailView
+- [x] Add navigation in detailView
 - [ ] Customize the UI of detailView
 
 ## License
