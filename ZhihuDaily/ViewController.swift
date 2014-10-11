@@ -66,6 +66,9 @@ class ViewController: UIViewController, UITableViewDelegate {
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
             } else {
+                // Empty all objects when fresh
+                self.latestItems.removeAllObjects()
+                
                 var arr = data?["stories"] as NSArray
                 
                 for data : AnyObject in arr {
