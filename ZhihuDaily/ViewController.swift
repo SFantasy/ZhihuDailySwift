@@ -88,7 +88,10 @@ class ViewController: UIViewController, UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier(self.identifier, forIndexPath: indexPath) as UITableViewCell
         
+        cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        cell.textLabel!.numberOfLines = 0
         cell.textLabel!.text = self.latestItems[indexPath.row]["title"] as? String
+        cell.textLabel?.textColor = UIColor(red: 100/255.0, green: 100/255.0, blue: 100/255.0, alpha: 1)
         
         return cell
     }
