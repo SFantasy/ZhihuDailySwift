@@ -12,8 +12,6 @@ import Alamofire
 class ViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var navBar: UINavigationBar!
-    @IBOutlet weak var navItem: UINavigationItem!
     
     var latestItems = NSMutableArray()
     let url = "http://news-at.zhihu.com/api/3/news/latest"
@@ -44,14 +42,6 @@ class ViewController: UIViewController, UITableViewDelegate {
         self.refreshControl.addTarget(self, action: "loadData", forControlEvents: .ValueChanged)
         self.refreshControl.attributedTitle = NSAttributedString(string: "下拉刷新")
         self.tableView.insertSubview(refreshControl, atIndex: 0)
-        
-        // Nav bar
-//        self.navBar.tintColor = self.navBgColor
-//        self.navBar.barTintColor = self.navBgColor
-//        self.navBar.backgroundColor = self.navBgColor
-        
-        // Nav bar item
-//        self.navItem.title = self.appTitle
         
     }
     
