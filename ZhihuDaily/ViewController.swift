@@ -30,6 +30,14 @@ class ViewController: UIViewController, UITableViewDelegate {
         self.configUI()
         self.loadData()
     }
+
+    override func viewWillAppear(animated: Bool) {
+        if tableView.indexPathForSelectedRow() != nil {
+            tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow()!, animated: animated)
+        }
+        
+        super.viewDidAppear(animated)
+    }
     
     // Customize UI
     func configUI() {
@@ -78,12 +86,18 @@ class ViewController: UIViewController, UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier(self.identifier, forIndexPath: indexPath) as UITableViewCell
         
-        cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        cell.textLabel!.numberOfLines = 0
         cell.textLabel!.text = self.latestItems[indexPath.row]["title"] as? String
         cell.textLabel?.textColor = UIColor(red: 100/255.0, green: 100/255.0, blue: 100/255.0, alpha: 1)
         
+        cell.contentView.layoutIfNeeded()
+        cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        cell.textLabel!.numberOfLines = 0
+        
         return cell
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 50
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
