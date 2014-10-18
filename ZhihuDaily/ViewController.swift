@@ -89,10 +89,6 @@ class ViewController: UIViewController, UITableViewDelegate {
         cell.textLabel!.text = self.latestItems[indexPath.row]["title"] as? String
         cell.textLabel?.textColor = UIColor(red: 100/255.0, green: 100/255.0, blue: 100/255.0, alpha: 1)
         
-        cell.contentView.layoutIfNeeded()
-        cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        cell.textLabel!.numberOfLines = 0
-        
         return cell
     }
     
